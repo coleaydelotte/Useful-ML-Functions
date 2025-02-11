@@ -9,6 +9,7 @@ def correlate_functions_to_target(*, column_name, data, target, return_subset=Fa
         warnings.filterwarnings("ignore")
         
     subset = pd.DataFrame()
+    subset[column_name] = data[column_name]
     subset[f"sin_{column_name}"] = np.sin(data[column_name])
     subset[f"cos_{column_name}"] = np.cos(data[column_name])
     subset[f"tan_{column_name}"] = np.tan(data[column_name])
