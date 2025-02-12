@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def correlate_functions_to_target(*, column_name, data, target, return_subset=False, drop_na=False, ignore_warnings=False):
+def correlate_column_transformations_to_target(*, column_name, data, target, return_subset=False, drop_na=False, ignore_warnings=False):
     if ignore_warnings:
         import warnings
         warnings.filterwarnings("ignore")
@@ -42,7 +42,7 @@ def correlate_functions_to_target(*, column_name, data, target, return_subset=Fa
 
 def main():
     data = pd.read_csv('https://github.com/ageron/handson-ml2/raw/master/datasets/housing/housing.csv')
-    corr_matrix = correlate_functions_to_target(column_name="total_rooms", data=data, target="median_house_value", return_subset=False, drop_na=False, ignore_warnings=True)
+    corr_matrix = correlate_column_transformations_to_target(column_name="total_rooms", data=data, target="median_house_value", return_subset=False, drop_na=False, ignore_warnings=True)
     corr_matrix = corr_matrix.to_frame()
     sns.heatmap(corr_matrix, annot=True)
     plt.xlabel("Median_house_value")
